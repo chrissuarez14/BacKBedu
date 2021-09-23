@@ -104,4 +104,5 @@ dist
 .tern-port
 
 
-env.sh
+# Ignore .sh files
+*/*.sh
