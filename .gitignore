@@ -106,3 +106,7 @@ dist
 
 # Ignore .sh files
 *.sh
+
+
+.sh
+env.sh
