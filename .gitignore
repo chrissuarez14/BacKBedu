@@ -105,4 +105,4 @@ dist
 
 
 # Ignore .sh files
-*/*.sh
+*.sh
