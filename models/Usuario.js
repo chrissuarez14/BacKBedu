@@ -58,16 +58,7 @@ const UsuarioSchema = new mongoose.Schema({
 UsuarioSchema.plugin(uniqueValidator,{message:'Ya existe el usuarios'}) //antes de hacer el proceso ver si no existe por eso va aqui
 
 
-UsuarioSchema.methods.publicData = () => {
-  return {
-    id: this.id,
-    username: this.username,
-    nombre: this.nombre,
-    apellido: this.apellido,
-    email: this.email,
-    tipo:this.tipo
-  }
-}
+
 
 //decirle como almacenar las contrasenas 
 
@@ -107,6 +98,18 @@ UsuarioSchema.methods.toAuthJSON=function(){
     username:this.username,
     email:this.email,
     token:this.generaJWT()
+  }
+}
+
+
+UsuarioSchema.methods.publicData = () => {
+  return {
+    id: this.id,
+    username: this.username,
+    nombre: this.nombre,
+    apellido: this.apellido,
+    email: this.email,
+    tipo:this.tipo
   }
 }
 

@@ -11,9 +11,11 @@ app.use(bodyParser.json());
 const mongoose = require('mongoose');
 // require('./config/passport') //trae la informacio par apoder trabajar con passport 
 
+
 mongoose.connect(
-	"mongodb+srv://Christian:Mierda1486@cluster0.p6jzv.mongodb.net/Adoptapet?retryWrites=true&w=majority"
-	);
+	process.env.MONGODB_URI, // obtiene la url de conexión desde las variables de entorno
+	{ useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+  );
 
 mongoose.set("debug", true)
 
@@ -28,8 +30,8 @@ require('./config/passport')
 app.use('/v1', require('./routes'));
 
 // Iniciando el servidor
-const PORT = 4001;
-app.listen(PORT, () => {
-	console.log(`Server listening on port ${PORT}`)
+
+app.listen(process.env.PORT, () => {
+	console.log(`Server listening on port ${process.env.PORT}`)
 })
 
